@@ -125,11 +125,20 @@ The webpack loader also needs to be configured. Note that the content `graphql-l
 
 ### 3. Prepare types 
 
-Run this command to generate `.d.ts` for `.graphql`. You may want to run it every time before running `tsc`. Please check your npm scripts in `package.json`.
+Run this command to generate `.d.ts`.
 
 ```
 npx graphql-let
 # This will generate __generated__/types/news.graphql-${hash}.d.ts
+```
+
+You may want to run it every time before running `tsc`. Please check your `package.json` and do like this.
+
+```diff
+   "scripts": {
+-     "build": "tsc"
++     "build": "graphql-let && tsc"
+   },
 ```
 
 ### 4. Code more
